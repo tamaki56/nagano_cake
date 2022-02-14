@@ -33,7 +33,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
       
       #追加
-      t.string :encrypted_password, null: false
+      
       t.datetime :created_at, null: false, default: now
       t.datetime :updated_at, null: false, default: now
 
