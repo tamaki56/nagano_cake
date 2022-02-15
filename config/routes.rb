@@ -27,8 +27,8 @@ Rails.application.routes.draw do
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "registrations",
-  sessions: 'sessions'
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
 }
 
 # 管理者用
