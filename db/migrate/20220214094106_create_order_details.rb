@@ -6,8 +6,6 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       t.integer :amount, null: false
       t.integer :price, null: false
       t.integer :making_status, null: false, default: 0 #enum
-      t.datetime :created_at, null: false, default: now
-      t.datetime :updated_at, null: false, default: now
 
       t.timestamps
     end
