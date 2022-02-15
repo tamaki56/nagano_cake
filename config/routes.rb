@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
   
   #会員
-  namespace :public do
+  scope module: :public do
+    root to: 'homes#top'
     resources :addresses, only: [:index,:edit,:create,:update,:destroy]
     resource :customers, only: [:show,:edit,:update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
@@ -20,16 +21,14 @@ Rails.application.routes.draw do
     resources :orders, only: [:new,:index,:show,:create]
     get 'orders/thanks' => 'orders#thanks'
     post 'orders/confirmation' => 'orders#confirmation'
-    root to: 'homes#top'
     get 'homes/about' => 'homes#about'
     resources :items, only: [:index,:show]
   end
-  
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
+  registrations: "registrations",
+  sessions: 'sessions'
 }
 
 # 管理者用
