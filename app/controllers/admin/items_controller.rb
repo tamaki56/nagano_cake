@@ -4,7 +4,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[])
+    @item = Item.find(params[:id])
+    @genre = @item.ge
   end
 
   def edit
