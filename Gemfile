@@ -56,5 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise' #devise追加
+gem 'kaminari' #ページネーション
 
 gem 'pry-byebug'
