@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #管理者
   namespace :admin do
-    resources :orders, only: [:show,:update]
+    resources :orders, only: [:show,:update,:index]
     resources :customers, only: [:show,:index,:edit,:update]
     resources :genres, only: [:index,:edit,:create,:update]
     resources :items, only: [:index,:show,:edit,:new,:create,:update]
