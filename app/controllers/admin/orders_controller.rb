@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
   
   def index
     @orders = Order.all
-    @posts = Post.all.page(params[:page]).per(10) #ページネーション
+    @posts = @orders.page(params[:page]).per(10) #ページネーション
   end
   
   def update
