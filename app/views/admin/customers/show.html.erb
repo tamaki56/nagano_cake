@@ -1,39 +1,59 @@
-<h1>
-  <%= @customer.first_name %>
-  <%= @customer.last_name %>
-  さんの会員詳細
-</h1>
-
-<p>会員ID</p>
-<%= @customer.id %>
-
-<p>氏名</p>
-<%= @customer.first_name %>
-<%= @customer.last_name %>
-
-<p>フリガナ</p>
-<%= @customer.first_name_kana %>
-<%= @customer.last_name_kana %>
-
-<p>郵便番号</p>
-<%= @customer.postal_code %>
-
-<p>住所</p>
-<%= @customer.address %>
-
-<p>電話番号</p>
-<%= @customer.telephone_number %>
-
-<p>メールアドレス</p>
-<%= @customer.email %>
-
-<p>会員ステータス</p>
-<% if @customer.is_active == true %>
-  <p>有効</p>
-<% else %>
-  <p>退会</p>
-<% end %>
-
-<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-
-<%= link_to "注文履歴一覧を見る", admin_orders_path %>
+<div class="container px-5">
+  <div class="row">
+    <div class="col-lg-9">
+      <h2>
+        <%= @customer.first_name %>
+        <%= @customer.last_name %>さんの会員詳細
+      </h2>
+      
+      <div class="group">
+        <label for="customer_id">会員ID</label>
+        <%= @customer.id %>
+      </div>
+      
+      <div class="group">
+        <label for="customer_name">氏名</label>
+        <%= @customer.first_name %>
+        <%= @customer.last_name %>
+      </div>
+      
+      <div class="group">
+        <label for="customer_name_kana">フリガナ</label>
+        <%= @customer.first_name_kana %>
+        <%= @customer.last_name_kana %>
+      </div>
+      
+      <div class="group">
+        <label for="postal_code">郵便番号</label>
+        <%= @customer.postal_code %>
+      </div>
+      
+      <div class="group">
+        <label for="address">住所</label>
+        <%= @customer.address %>
+      </div>
+      
+      <div class="group">
+        <label for="telephone_number">電話番号</label>
+        <%= @customer.telephone_number %>
+      </div>
+      
+      <div class="group">
+        <label for="email">メールアドレス</label>
+        <%= @customer.email %>
+      </div>
+      
+      <div class="group">
+        <label for="is_active">会員ステータス</label>
+        <% if @customer.is_active == true %>
+          <p>有効</p>
+        <% else %>
+          <p>退会</p>
+        <% end %>
+      </div>
+      
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "btn btn-success" %>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path,class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

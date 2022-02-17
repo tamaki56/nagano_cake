@@ -1,24 +1,39 @@
-<h1>商品詳細</h1>
+<div class="container px-5">
+ <div class="row">
+  <div class="mx-auto">
+   <h1>商品詳細</h1>
+   
+   <div class="group">
+    <label for="item_name">商品名</label>
+    <%= @item.name %>
+   </div>
+   
+   <div class="group">
+    <label for="item_intraduction">商品説明</label>
+    <%= @item.introduction %>
+   </div>
+   
+   <div class="group">
+    <label for="genre">ジャンル</label>
+    <%= @item.genre.name %>
+   </div>
+   
+   <div class="group">
+    <label for="item_price">税込価格<br>(税抜価格)</label>
+    <%= @item.price %>
+    <%=@item.with_tax_price %>
+   </div>
+   
+   <div class="group">
+    <label for="item_is_active">販売ステータス</label>
+    <% if @item.is_active == true %>
+     <p>販売中</p>
+    <% else %>
+     <p>販売停止中</p>
+    <% end %>
+   </div>
 
-
-<p>商品名</p>
-<%= @item.name %>
-
-<p>商品説明</p>
-<%= @item.introduction %>
-
-<p>ジャンル</p>
-<%= @item.genre.name %>
-
-<p>税込価格
-<br>(税抜価格)</p>
-<%= @item.price %>
-<%=@item.with_tax_price %>
-
-<p>販売ステータス</p>
-<% if @item.is_active == true %>
- <p>販売中</p>
-<% else %>
- <p>販売停止中</p>
-<% end %>
-<%= link_to '編集する', edit_admin_item_path(@item.id) %>
+   <%= link_to '編集する', edit_admin_item_path(@item.id),class: "btn btn-success" %>
+  </div>
+ </div>
+</div>
