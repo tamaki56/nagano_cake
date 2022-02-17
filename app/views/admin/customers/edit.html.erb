@@ -1,2 +1,57 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<h1>
+  <%= @customer.first_name %>
+  <%= @customer.last_name %>
+  さんの会員情報編集
+</h1>
+
+<%= form_with model: @customer, url:  admin_customer_path(@customer.id), method: :patch, local: true do |f| %>
+
+<p>会員ID</p>
+<%= @customer.id %>
+
+<div class="form-group">
+  <p>氏名</p>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="form-group">
+  <p>フリガナ</p>
+  <%= f.text_field :first_name_kana %>
+  <%= f.text_field :last_name_kana %>
+</div>
+
+<div class="form-group">
+  <p>郵便番号</p>
+  <%= f.text_field :postal_code %>
+</div>
+
+<div class="form-group">
+  <p>住所</p>
+  <%= f.text_field :addresses %>
+</div>
+
+<div class="form-group">
+  <p>電話番号</p>
+  <%= f.text_field :telephone_number %>
+</div>
+
+<div class="form-group">
+  <p>メールアドレス</p>
+  <%= f.text_field :email %>
+</div>
+
+<div class="form-group">
+  <p>会員ステータス</p>
+    <%= f.label :is_active,"有効" %>
+    <%= f.radio_button :is_active,'有効' %>
+    
+    <%= f.label :is_active,"退会" %>
+    <%= f.radio_button :is_active,'退会' %>
+</div>
+
+<div class="form-group">
+  <%= f.submit '変更を保存' %>
+</div>
+
+<% end %>

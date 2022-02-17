@@ -10,5 +10,10 @@ class Admin::OrdersController < ApplicationController
   def update
   end
   
-  
+  private
+    
+  def order_params
+    params.require(:item).permit(:name, :created_at, :status, :order_detail_id)
+  end
+
 end
