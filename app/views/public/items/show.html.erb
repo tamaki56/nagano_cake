@@ -17,7 +17,7 @@
         </div>
         
         <%= form_with model: @item, local: true do |f| %>
-          <%= f.select :amount, [["個数選択"],[1], [2], [3]] %>
+          <%= f.select :amount, *[1..3] %>
         <% end %>
         
         <%= link_to "カートに入れる", cart_items_path,class: "btn btn-success" %>
