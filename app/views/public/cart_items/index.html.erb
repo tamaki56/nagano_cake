@@ -1,2 +1,26 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-mx-auto">
+      <label for="title">商品カート</label>
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger" %>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @cart_item.each do |cart_item| %>
+          <tr>
+            <%= cart_item.name %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
