@@ -60,3 +60,5 @@ gem 'devise' #devise追加
 gem 'kaminari' #ページネーション
 
 gem 'pry-byebug'
+
+gem "enum_help" #enum追加
