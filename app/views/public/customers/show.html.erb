@@ -5,7 +5,29 @@
       
       <label for="my_page">登録情報</label>
       <%= link_to "編集する", edit_customers_path,class: "btn btn-success" %>
-      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <ht>氏名</ht>
+            <th>カナ</th>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>電話番号</th>
+            <th>メールアドレス</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            <td><%= @customer.first_name %><%= @customer.last_name %></td>
+            <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+            <td><%= @customer.postal_code %></td>
+            <td><%= @customer.address %></td>
+            <td><%= @customer.telephone_number %></td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
       
       
       
