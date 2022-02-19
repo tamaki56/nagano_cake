@@ -10,21 +10,23 @@
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
+            <th></th>
           </tr>
         </thead>
         
         <tbody>
           <% @cart_items.each do |cart_item| %>
           <tr>
-            <th><%= cart_item.name %></th>
-            <th><%= cart_item.with_tax_price %></th>
-            <th>
-              <%= form_with model: @item, local: true do |f| %>
+            <td><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.with_tax_price %></td>
+            <td>
+              <%= form_with model: cart_item, local: true do |f| %>
                 <%= f.select :amount, *[1..3] %>
-                <%= f.submit '編集する',class: "btn btn-success" %>
+                <%= f.submit "編集する" %>
               <% end %>
-            </th>
-            <th><%= cart_item.subtotal %></th>
+            </td>
+            <td><%= cart_item.subtotal %></td>
+            <td><%= link_to "削除する",cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %></td>
           </tr>
           <% end %>
         </tbody>
