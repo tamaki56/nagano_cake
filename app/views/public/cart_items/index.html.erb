@@ -22,7 +22,7 @@
             <td>
               <%= form_with model: cart_item, local: true do |f| %>
                 <%= f.select :amount, *[1..3] %>
-                <%= f.submit "編集する" %>
+                <%= f.submit "編集する",class: "btn btn-success" %>
               <% end %>
             </td>
             <td><%= cart_item.subtotal %></td>
