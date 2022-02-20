@@ -4,9 +4,6 @@
         payment_method: #カラム名
           credit_card: "クレジットカード" #番号と紐付けた要素,要素の数だけ追加する
           transfer: "銀行振込"
-          
-  ja: # 日本語の設定を行う
-    enums: # enumの設定を行う
       order_datail: #モデル名
         enum making_status: #カラム名
           cannot_be_manufactured: "製作不可" #番号と紐付けた要素,要素の数だけ追加する
