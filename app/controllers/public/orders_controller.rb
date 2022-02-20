@@ -4,8 +4,20 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
+    @cart_items = CartItem.all
     select_address = params[:order][:select_address]
     @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @sum = []
+    @cart_items.each do |cart_item|
+      cart_item.item.name 
+      cart_item.item.with_tax_price
+      cart_item.amount
+      sum = cart_item.item.with_tax_price * cart_item.amount
+      @sum << sum 
+    end
+    @order.total_payment =  @order.shipping_cost + @sum.sum
+    @order.customer_id = current_customer.id
     if select_address == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -37,6 +49,6 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :customer_id)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :customer_id, :total_payment)
   end
 end
