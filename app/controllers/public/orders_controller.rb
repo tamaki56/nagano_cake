@@ -45,10 +45,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @sum = []
   end
   
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :customer_id, :total_payment)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :customer_id, :total_payment,)
   end
 end

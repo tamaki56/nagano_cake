@@ -4,6 +4,12 @@
         payment_method: #カラム名
           credit_card: "クレジットカード" #番号と紐付けた要素,要素の数だけ追加する
           transfer: "銀行振込"
+        status:
+          waiting_for_deposit: "入金待ち"
+          payment_confirmation: "入金確認"
+          production: "製作中"
+          ready_to_ship: "発送準備中"
+          sent: "発送済み"
       order_datail: #モデル名
         enum making_status: #カラム名
           cannot_be_manufactured: "製作不可" #番号と紐付けた要素,要素の数だけ追加する
