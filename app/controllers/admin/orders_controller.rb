@@ -6,6 +6,7 @@ class Admin::OrdersController < ApplicationController
   
   def update
     @order = Order.find(params[:id])
+    #selectの連動
     @order.update(order_params)
     if @order.status == "payment_confirmation"
       @order_details = @order.order_details
