@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
     select_address = params[:order][:select_address]
     @order = Order.new(order_params)
     @order.shipping_cost = 800
+    #sumの定義
     @sum = []
     @cart_items.each do |cart_item|
       cart_item.item.name 
@@ -18,6 +19,7 @@ class Public::OrdersController < ApplicationController
     end
     @order.total_payment =  @order.shipping_cost + @sum.sum
     @order.customer_id = current_customer.id
+    #select_addressの条件分岐
     if select_address == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address

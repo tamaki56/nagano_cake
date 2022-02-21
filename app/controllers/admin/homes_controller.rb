@@ -7,6 +7,6 @@ class Admin::HomesController < ApplicationController
   private
   
   def order_params
-    params.require(:item).permit(:name, :created_at, :status, :order_detail_id, :postal_code, :address, :created_at)
+    params.require(:order).permit(:name, :created_at, :status, :order_detail_id, :postal_code, :address, :customer_id)
   end  
 end
