@@ -31,9 +31,22 @@ class Public::OrdersController < ApplicationController
   end  
   
   def create
+    #オーダモデルのデータ登録
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    # order_detailモデルデータ登録
+    @cart_items = current_customer.cart_items    
+    @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item_id
+      @order_detail.order_id = @order.id
+      @order_detail.amount = cart_item.amount
+      @order_detail.price = cart_item.item.with_tax_price
+      @order_detail.save
+    end
+    #カート内商品全削除
+    @cart_items.destroy_all    
     redirect_to orders_thanks_path        
   end  
 
@@ -46,6 +59,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
     @sum = []
   end
   
