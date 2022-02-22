@@ -1,66 +1,83 @@
 <div class="container">
-  <div class="row">
-    <div class="mx-auto">
-      <h2>新規会員登録</h2>
+  <div class="row align-items-center" style="height:200px">
+    <div class="col-lg-11">
+      <p>新規会員登録</p>
       
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
-        <div class="field">
-          <label for="first_name">名前</label>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">名前</label>
+          <div class="col-sm-10">
           <%= f.label :first_name, "(姓)" %>
           <%= f.text_field :first_name %>
           
           <%= f.label :last_name, "(名)" %>
           <%= f.text_field :last_name %>
+          </div>
         </div>
         
-        <div class="field">
-          <label for="name_kana">フリガナ</label>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">フリガナ</label>
+          <div class="col-sm-10">
           <%= f.label :first_name,"(セイ)" %>
           <%= f.text_field :first_name_kana %>
           
           <%= f.label :last_name,"(メイ)" %>
           <%= f.text_field :last_name_kana %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">メールアドレス</label>
+          <div class="col-sm-10">
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :postal_code,"郵便番号（ハイフンなし）" %>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">郵便番号（ハイフンなし）</label>
+          <div class="col-sm-10">
           <%= f.text_field :postal_code %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :address,"住所" %>
-          <%= f.text_field :address %>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">住所</label>
+          <div class="col-sm-10">
+            <%= f.text_field :address %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :telephone_number,"電話番号" %>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">電話番号</label>
+          <div class="col-sm-10">
           <%= f.telephone_field :telephone_number %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :password,"パスワード" %>
-          <% if @minimum_password_length %>
-            (<%= @minimum_password_length %> 文字以上)
-          <% end %>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">パスワード<% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)<% end %></label>
+          <div class ="col-sm-10">
           <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
         </div>
         
-        <div class="field">
-          <%= f.label :password_confirmation,"パスワード" %>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">パスワード</label>
+          <div class="col-sm-10">
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
         </div>
         
-        <div class="actions">
+        <div class="row mb-3">
+          <div class="col-sm-10">
           <%= f.submit "新規登録",class: "btn btn-success" %>
+          </div>
         </div>
       <% end %>
-      <%= render "public/shared/links" %>
+      <p>既に登録済みの方</p>
+      <%= render "public/shared/links" %>からログインしてください
     </div>
   </div>
 </div>
