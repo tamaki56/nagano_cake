@@ -1,38 +1,48 @@
 <div class="container px-5">
  <div class="row">
-  <div class="col-lg-5">
+  <div class="col-5">
    <h1>商品詳細</h1>
    <%= image_tag @item.get_image(300,300) %>
   </div>
-  <div class="col-lg-7">
-   <div class="group">
-    <label for="item_name">商品名</label>
+  <div class="col-7">
+   <div class="row mb-3">
+    <label for="inputEmail3" class="col-3 col-form-label">商品名</label>
+    <div class="col-9">
     <%= @item.name %>
+    </div>
    </div>
    
-   <div class="group">
-    <label for="item_intraduction">商品説明</label>
+   <div class="row mb-3">
+    <label for="inputEmail3" class="col-3 col-form-label">商品説明</label>
+    <div class="col-9">
     <%= @item.introduction %>
+    </div>
    </div>
    
-   <div class="group">
-    <label for="genre">ジャンル</label>
+   <div class="row mb-3">
+    <label for="inputEmail3" class="col-3 col-form-label">ジャンル</label>
+    <div class="col-9">
     <%= @item.genre.name %>
+    </div>
    </div>
    
-   <div class="group">
-    <label for="item_price">税込価格<br>(税抜価格)</label>
+   <div class="row mb-3">
+    <label for="nputEmail3" class="col-3 col-form-label">税込価格<br>(税抜価格)</label>
+    <div class="col-9">
     <%= @item.price %>
-    <%=@item.with_tax_price %>
+    (<%=@item.with_tax_price %>)円
+    </div>
    </div>
    
-   <div class="group">
-    <label for="item_is_active">販売ステータス</label>
+   <div class="row mb-3">
+    <label for="nputEmail3" class="col-3 col-form-label">販売ステータス</label>
+    <div class="col-9">
     <% if @item.is_active == true %>
      <p>販売中</p>
     <% else %>
      <p>販売停止中</p>
     <% end %>
+    </div>
    </div>
 
    <%= link_to '編集する', edit_admin_item_path(@item.id),class: "btn btn-success" %>
