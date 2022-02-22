@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
+    @total_price = @cart_items.sum{|cart_item|cart_item.item.with_tax_price * cart_item.amount}#合計値
   end
   
   def update

@@ -4,20 +4,13 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     select_address = params[:order][:select_address]
     @order = Order.new(order_params)
     @order.shipping_cost = 800
     #sumの定義
-    @sum = []
-    @cart_items.each do |cart_item|
-      cart_item.item.name 
-      cart_item.item.with_tax_price
-      cart_item.amount
-      sum = cart_item.item.with_tax_price * cart_item.amount
-      @sum << sum 
-    end
-    @order.total_payment =  @order.shipping_cost + @sum.sum
+    @total = @cart_items.sum{|cart_item|cart_item.item.with_tax_price * cart_item.amount}
+    @order.total_payment =  @order.shipping_cost + @total
     @order.customer_id = current_customer.id
     #select_addressの条件分岐
     if select_address == "0"

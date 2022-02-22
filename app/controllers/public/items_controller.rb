@@ -1,6 +1,7 @@
 class Public::ItemsController < ApplicationController
   def index
-    @posts = @items.page(params[:page]).per(10)
+    @items = Item.where(is_active: true)
+    @posts = @items.page(params[:page]).per(8)
   end
 
   def show
