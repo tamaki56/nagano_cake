@@ -8,17 +8,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-7">
+    <div class="max-auto">
       <h2>新着商品</h2>
-      
+    </div>
+  </div>
+  <div class="row">
       <% @items.first(4).each do |item| %>
+       <div class="col-3">
         <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image(200,200), size:"200x200" %>
+          <%= image_tag item.get_image(200,100), size: "200x100" %>
           <p><%= item.name %></p>
           <p><%= item.price %></p>
         <% end %>
+       </div>
       <% end %>
       <%= link_to "全ての商品を見る", items_path %>
-    </div>
   </div>
 </div>
