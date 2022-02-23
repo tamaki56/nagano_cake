@@ -3,8 +3,13 @@
     <div class="col-lg-8">
       <h2>マイページ</h2>
       
-      <label for="my_page">登録情報</label>
-      <%= link_to "編集する", edit_customers_path,class: "btn btn-success" %>
+      <div class="row mb-3">
+      <label for="inputEmail3" class="col-3 col-form-label">登録情報</label>
+        <div class="col-9">
+          <%= link_to "編集する", edit_customers_path,class: "btn btn-success" %>
+        </div>
+      </div>
+      
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -34,14 +39,18 @@
         </thead>
       </table>
 
-      <div class="group">
-        <label for="address_index">配送先</label>
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-3 col-form-label">配送先</label>
+        <div class="col-9">
         <%= link_to "一覧を見る", addresses_path,class: "btn btn-primary" %>
+        </div>
       </div>
       
-      <div class="group">
-        <label for="order_index">注文履歴</label>
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-3 col-form-label">注文履歴</label>
+        <div class="col-9">
         <%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
   </div>

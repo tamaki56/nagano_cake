@@ -6,7 +6,7 @@
       <div class="row mb-3">
         <label for="inputEmail3" class="col-3 col-form-label">購入者</label>
         <div class="col-9">
-        <%= @order.name %>
+        <%= @order.customer.first_name %><%= @order.customer.last_name %>
         </div>
       </div>
       
